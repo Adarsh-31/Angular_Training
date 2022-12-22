@@ -1,0 +1,25 @@
+<h1>{{title}}</h1>
+
+<form [formGroup]="loginForm" (ngSubmit)="submitProject()" >
+  <span>Project Name: </span>
+  <input type="text" name="project" placeholder="Project Name" formControlName="project"><br>
+  <span *ngIf="project && project.invalid && project.touched  " style="color: red;">Enter Valid Project Name</span>
+  <br><br>
+  <span>Email: </span>
+  <input type="text" name="email" placeholder="Enter Email" formControlName="email"><br>
+  <span *ngIf="email && email.invalid && email.touched" style="color: red;">Enter Valid Email</span>
+  <br>
+  <br>
+  <label>Project Status: </label>
+  <select name="projectstatus" id="projectstaus">
+    <option *ngFor="let item of projectstatus" value="{{item}}">{{item}}</option>
+  </select>
+
+  <br>
+  <br>
+
+  <button [disabled]="loginForm.invalid">Submit</button>
+
+
+
+</form>
