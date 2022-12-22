@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<form #loginForm = "ngForm" (ngSubmit)="loginUser(loginForm.value)">
+  <span>Email </span><input type="email"  #email="ngModel" email required name="email" placeholder="Enter Email" ngModel>
+  <span *ngIf="email.invalid && email.touched ">Please Enter Valid Email</span>
+  <br>
+  <br>
+  <label for="subcription">Subcription:</label>
+  <select  name="subcription" id="subcription">
+    <option *ngFor="let item of subcription" value="{{item}}">{{item}}</option>
+  </select>
+  <br><br>
+  
+  <span>Password </span><input type="password"  required #password="ngModel" password name="password" placeholder="Enter password" ngModel>
+  <span *ngIf="password.invalid && password.touched ">Password is Required</span>
+  <button [disabled]="loginForm.invalid">Submit</button>
+  
+</form>
