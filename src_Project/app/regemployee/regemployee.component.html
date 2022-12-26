@@ -1,0 +1,32 @@
+
+<form [formGroup]="employeeform" ><div class="container">
+    <div class="row">
+    <div class="form-group col-md-6">
+          <input type="text" class="form-control" formControlName="name" placeholder="Enter Name" >
+          <div style="color: red;" *ngIf="employeeform.controls['name'].touched && employeeform.controls['name'].invalid">
+            <span *ngIf="employeeform.controls['name'].hasError('required')">Name is required</span>
+        </div>
+      </div>
+      <div style="padding-bottom:1em" class="form-group col-md-6">
+          <input type="text" class="form-control" formControlName="mobile"  placeholder="Enter Mobile">
+          <div style="color: red;" *ngIf="employeeform.controls['mobile'].touched && employeeform.controls['mobile'].invalid">
+            <span  *ngIf="employeeform.controls['mobile'].hasError('required')">Mobile no is required</span><br>
+            <span  *ngIf="employeeform.controls['mobile'].getError?.length">use 10 digit mob no</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding-bottom:1em" class="form-group">
+        <input  type="text" class="form-control" formControlName="address" placeholder="Enter Address" >
+        <div style="color: red;" *ngIf="employeeform.controls['address'].touched && employeeform.controls['address'].invalid">
+            <span *ngIf="employeeform.controls['address'].hasError('required')">Address is required</span>
+        </div>
+    </div>
+      <div style="padding-bottom: 1em;" class="form-group">
+          <button (click)="postEmployee()"  class="btn btn-success btn-lg btn-block" formControlName="submit">Submit</button>
+      </div>
+      <div class="form-group">
+          <button (click)="resetEmployee()" class="btn btn-warning btn-lg btn-block" formControlName="reset" >Reset</button>
+      </div>
+    </div></form>
+
+
