@@ -1,0 +1,37 @@
+<mat-card class="card">
+    <mat-card-title>Login</mat-card-title>
+<mat-card-content>
+<form [formGroup]="form" (ngSubmit)="submit()">
+  <p>
+    <mat-form-field appearance="outline" >
+      <input type="text" matInput placeholder="Username" formControlName="username">
+      <mat-icon matSuffix>account_box</mat-icon>
+      <mat-error>
+        <span *ngIf="form.controls['username'].hasError('required')">username is required</span>
+        <span *ngIf="form.controls['username'].hasError('pattern')">enter correct username</span>
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+  <p>
+    <mat-form-field appearance="outline">
+      <input type="password" matInput placeholder="Password" formControlName="password">
+      <mat-icon matSuffix>password</mat-icon>
+      <mat-error>
+        <span *ngIf="form.controls['password'].hasError('required')">password is required</span>
+        <span *ngIf="form.controls['password'].hasError('pattern')">enter correct password</span>
+      </mat-error>
+    </mat-form-field>
+  </p>
+
+ 
+
+  <div class="button">
+    <button mat-raised-button type="submit" mat-button class="btn">Login</button>
+  </div>
+
+</form>
+</mat-card-content>
+
+
+</mat-card>

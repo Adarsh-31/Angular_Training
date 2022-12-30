@@ -1,0 +1,57 @@
+<div class="bckimg"><mat-sidenav-container fullscreen>
+
+    <mat-sidenav #sidenav>
+  
+       <mat-nav-list (click)="sidenav.close()">
+    
+      <a mat-list-item>
+        <mat-icon>book</mat-icon>
+            <span>Course List</span>
+      </a>
+      <a mat-list-item>
+        <mat-icon>add_circle_outline</mat-icon>
+            <span>Add Course</span>
+      </a>
+  
+   <!-- <a mat-list-item>
+      <mat-icon>add</mat-icon>
+      <span>Add New Course</span>
+    </a> -->
+
+  
+          
+  
+         
+  
+        </mat-nav-list>
+  
+    </mat-sidenav>
+
+  <mat-toolbar class="nav">
+  <button mat-icon-button (click)="sidenav.open()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <a mat-button routerLink="">
+    <mat-icon>home</mat-icon>
+  Home
+  </a>
+  <a mat-button routerLink="login">
+    <mat-icon>account_circle</mat-icon>
+  Login
+  </a>
+  <a mat-button routerLink="register">
+    <mat-icon>person_add</mat-icon>
+  Register
+  </a>
+  <button mat-button [matMenuTriggerFor]="menu">About Us
+    <mat-icon matSuffix>info</mat-icon>
+  </button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>CEO Message</button>
+  <button mat-menu-item>Contact Details</button>
+</mat-menu>
+</mat-toolbar>
+<router-outlet></router-outlet>
+</mat-sidenav-container>
+</div>
